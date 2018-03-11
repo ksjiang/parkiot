@@ -1,5 +1,8 @@
-int values[6];
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+int values[6];
 
 void setup() {
  pinMode(D2,INPUT);
@@ -17,10 +20,16 @@ void loop() {
     values[3] = digitalRead(D5);
     values[4] = digitalRead(D6);
     values[5] = digitalRead(D7);
-    Particle.publish("Space1",values[0],60,PRIVATE);
-    Particle.publish("Space2",values[1],60,PRIVATE);
-    Particle.publish("Space3",values[2],60,PRIVATE);
-    Particle.publish("Space4",values[3],60,PRIVATE);
-    Particle.publish("Space5",values[4],60,PRIVATE);
-    Particle.publish("Space6",values[5],60,PRIVATE);
+   char a[1] = {char(values[0])};
+   char b[1] = {char(values[1])};
+   char c[1] = {char(values[2])};
+   char d[1] = {char(values[3])};
+   char e[1] = {char(values[4])};
+   char f[1] = {char(values[5])};
+    Particle.publish("Space1",a,60,PUBLIC);
+    Particle.publish("Space2",b,60,PUBLIC);
+    Particle.publish("Space3",c,60,PUBLIC);
+    Particle.publish("Space4",d,60,PUBLIC);
+    Particle.publish("Space5",e,60,PUBLIC);
+    Particle.publish("Space6",f,60,PUBLIC);
 }
